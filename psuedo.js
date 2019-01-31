@@ -17,10 +17,8 @@
 // });
 // }
 
-// const validationList = [];
 
-// const validation = function (){
-//     const queryURL = `https://api.iextrading.com/1.0/ref-data/symbols`;
+
 
 // $.ajax({
 //     url: queryURL,

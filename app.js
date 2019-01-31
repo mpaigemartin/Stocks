@@ -1,4 +1,18 @@
 const stockList = ['AAPL','TSLA','AMZN'];
+const validationList = [];
+
+const validation = function (){
+    $.ajax({
+    url: queryURL = `https://api.iextrading.com/1.0/ref-data/symbols`,
+    method: "GET"
+    }).then(function(response){
+        for (let i =0; i< response.length; i++) {
+            validationList.push(response[i].symbol);
+        }
+        return validationList;
+    }
+    )}    
+
 
 
 const displayStockInfo = function(){
@@ -23,10 +37,10 @@ const priceTag = $('<p>').text(`Stock Price: ${price}`);
 stockDiv.append(priceTag);
 
 
-$('#stocks-view').prepend(stockDiv);
+$('#stocks-view').html(stockDiv);
 
 
-for (i=0; i<10; i++) {
+for (let i=0; i < response.news.length; i++) {
     let newsHeadline = response.news[i].headline;
     let newsSummary = response.news[i].summary;
 stockDiv.append(
@@ -64,4 +78,5 @@ const addButton = function(e) {
 $('#add-stock').on('click', addButton);
 $('#buttons-view').on('click', '.stock-btn', displayStockInfo);
 
+validation();
 render()
